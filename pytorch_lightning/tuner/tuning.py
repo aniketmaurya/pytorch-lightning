@@ -17,6 +17,7 @@ from typing import List, Optional, Union
 from torch.utils.data import DataLoader
 
 from pytorch_lightning.core.datamodule import LightningDataModule
+from pytorch_lightning import Trainer
 from pytorch_lightning.core.lightning import LightningModule
 from pytorch_lightning.trainer.states import TrainerState
 from pytorch_lightning.tuner.auto_gpu_select import pick_multiple_gpus
@@ -26,7 +27,7 @@ from pytorch_lightning.tuner.lr_finder import lr_find
 
 class Tuner:
 
-    def __init__(self, trainer):
+    def __init__(self, trainer: Trainer):
         self.trainer = trainer
 
     def on_trainer_init(self, auto_lr_find, auto_scale_batch_size):
